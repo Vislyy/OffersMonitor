@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import *
+from PyQt5.QtWidgets import *
 
 app = QApplication([])
 window = QWidget()
@@ -11,6 +11,7 @@ price_from_lbl = QLabel("Введіть ціну від якої потрібн�
 price_from_text = QLineEdit()
 price_to_lbl = QLabel("Введіть ціну від якої потрібно шукати (До 10000000)")
 price_to_text = QLineEdit()
+start_btn = QPushButton("Розпочати парсинг")
 
 mainline.addWidget(query_lbl)
 mainline.addWidget(query_text)
@@ -18,6 +19,7 @@ mainline.addWidget(price_from_lbl)
 mainline.addWidget(price_from_text)
 mainline.addWidget(price_to_lbl)
 mainline.addWidget(price_to_text)
+mainline.addWidget(start_btn)
 
 window.setLayout(mainline)
 
