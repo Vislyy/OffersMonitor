@@ -44,4 +44,4 @@ if __name__ == "__main__":
         window.show()
         app.exec()
     except KeyboardInterrupt:
-        print("[!] Programm was closed")
+        print("[!] Programm was forcefully closed")
