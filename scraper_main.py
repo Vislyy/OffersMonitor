@@ -30,6 +30,9 @@ def creating_urls(query, price_from, price_to, pages=8):
     return urls
 
 def parse_urls(urls):
+    offers = {
+
+    }
     counter = 0
     for url in urls:
         print("[DEBUG] Scraper: Scraping started")
@@ -45,7 +48,11 @@ def parse_urls(urls):
                     name = ad.find("h4", class_="css-1g61gc2").text.strip()
                     price = ad.find("p", {"data-testid": "ad-price"}).contents[0].text.strip()
                     offer = {
-                        "name": name,
+                        "Name": name,
+                        "Price": price,
+                        "Href": full_href
+                    }
+                    offers[name] = {
                         "price": price,
                         "href": full_href
                     }
@@ -55,11 +62,13 @@ def parse_urls(urls):
                         f"Посилання: {full_href}")
             else:
                 print("[!] No offers!")
-
+    return offers
 
 def main(query, price_from, price_to):
     urls = creating_urls(query, price_from, price_to)
-    parse_urls(urls)
+    offers = parse_urls(urls)
+    writing_file(offers)
+
 
 if __name__ == "__main__":
     try:
