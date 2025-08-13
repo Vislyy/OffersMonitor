@@ -21,10 +21,11 @@ def creating_urls(query, price_from, price_to, pages=8):
     elif not price_to:
         price_to = 100000000
     urls = []
-    query = quote(query)
+    query = quote(str(query))
     for page in range(1,pages):
         url = f"https://olx.ua/uk/list/q-{query}/?page={page}&search%5Bfilter_float_price:from%5D={price_from}&search%5Bfilter_float_price:to%5D={price_to}"
         urls.append(url)
+        print(url)
     print("[+] URL`s created successfully")
     return urls
 
@@ -56,12 +57,12 @@ def parse_urls(urls):
                 print("[!] No offers!")
 
 
-def main():
-    urls = creating_urls("Ноутбук", 3000, 15000)
+def main(query, price_from, price_to):
+    urls = creating_urls(query, price_from, price_to)
     parse_urls(urls)
 
 if __name__ == "__main__":
     try:
-        main()
+        main("Ноутбук", 10, 1000000)
     except KeyboardInterrupt:
         print("[!] Scraper was forcefully stopped")
