@@ -1,6 +1,14 @@
 {
-    "FDSFDS": {
+    "RX 6600": {
         "price_from": "0",
-        "price_to": "1"
+        "price_to": "6000"
+    },
+    "FR": {
+        "price_from": "0",
+        "price_to": "100000"
+    },
+    "IPhone 13": {
+        "price_from": "0",
+        "price_to": "100000"
     }
 }
