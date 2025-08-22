@@ -99,6 +99,7 @@ def delete_template():
     query_text.clear()
     price_from_text.clear()
     price_to_text.clear()
+    write_template(templates_dict)
     
 start_btn.clicked.connect(start_scraping)
 add_template_btn.clicked.connect(add_template)
